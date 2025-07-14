@@ -3,7 +3,8 @@ from database import get_connection
 def handle_product_info(product_name):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT description FROM Product WHERE name = ?", product_name)
+    cursor.execute("SELECT description FROM Products WHERE name = ?", product_name)
+
     row = cursor.fetchone()
     conn.close()
 
@@ -15,7 +16,7 @@ def handle_product_info(product_name):
 def handle_product_stock(product_name):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT stock FROM Product WHERE name = ?", product_name)
+    cursor.execute("SELECT stock FROM Products WHERE name = ?", product_name)
     row = cursor.fetchone()
     conn.close()
 
